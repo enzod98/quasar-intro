@@ -36,6 +36,15 @@
               </q-item-section>
             </q-item>
 
+            <q-item active clickable v-ripple to="/form" active-class="my-menu-link" >
+              <q-item-section avatar>
+                <q-icon name="fab fa-wpforms" />
+              </q-item-section>
+
+              <q-item-section>
+                Form
+              </q-item-section>
+            </q-item>
             
           </q-list>
         </q-scroll-area>
