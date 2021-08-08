@@ -42,14 +42,19 @@
             </div>
         </q-form>
 
+        <pintar-datos
+            :productos="productos"
+         />
     </q-page>
 </template>
 
 <script>
 import {ref} from 'vue'
 import { useQuasar } from 'quasar'
+import PintarDatos from 'src/components/PintarDatos.vue';
 
 export default {
+  components: { PintarDatos },
     setup() {
         const $q = useQuasar();
 
@@ -58,6 +63,8 @@ export default {
         const seleccion = ref(null);
         const terminos = ref(false);
         const opciones = ['máxima', 'moderada', 'mínima']
+
+        const productos = ref([]);
         
         const procesarForm = () => {
             console.log('submited');
@@ -76,10 +83,15 @@ export default {
                 message: 'Se envió el formulario!'
                 })
 
-                myForm.value.resetValidation();
-                limpiarForm();
 
                 //Procesar form
+                productos.value.push({
+                    producto: producto.value,
+                    prioridad: seleccion.value
+                })
+                
+                myForm.value.resetValidation();
+                limpiarForm();
             }
         }
 
@@ -89,7 +101,7 @@ export default {
             terminos.value = false
         }
 
-        return { producto, seleccion, opciones, procesarForm, terminos, limpiarForm, myForm }
+        return { producto, seleccion, opciones, procesarForm, terminos, limpiarForm, myForm, productos}
     },
 }
 </script>

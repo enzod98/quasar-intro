@@ -1,17 +1,25 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
+  <q-page padding>
+    <h1>Index</h1>
+    <q-icon 
+      name="warning"
+      size="200px"
+      class="text-primary"
+    />
+    <q-icon 
+      name="ti-save-alt"
+      size="200px"
+      class="text-warning"
+    />
+
+    <q-btn 
+      icon-right="ti-twitter"
+      label="twitter"
+      color="blue"
+    />
   </q-page>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
 
-export default defineComponent({
-  name: 'PageIndex'
-})
 </script>
